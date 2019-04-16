@@ -5,13 +5,14 @@ pipeline {
  options {
   skipDefaultCheckout()
   buildDiscarder(logRotator(numToKeepStr: '20'))
+  //timestamps()
  }
  agent any
  stages {
   stage('Tests') {
-   agent {
+   /*agent {
     label 'd3-build-agent'
-   }
+   }*/
    steps {
     script {
      def scmVars = checkout scm
