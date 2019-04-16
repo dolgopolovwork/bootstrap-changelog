@@ -5,7 +5,6 @@ pipeline {
  options {
   skipDefaultCheckout()
   buildDiscarder(logRotator(numToKeepStr: '20'))
-  timestamps()
  }
  agent any
  stages {
