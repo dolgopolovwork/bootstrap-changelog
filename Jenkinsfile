@@ -24,7 +24,7 @@ pipeline {
 
      iC = docker.image("openjdk:8-jdk")
      //iC.inside("--network='d3-${DOCKER_NETWORK}' -e JVM_OPTS='-Xmx3200m' -e TERM='dumb'") {
-     iC.inside("-e DOCKER_CONFIG='~/.docker' -e JVM_OPTS='-Xmx3200m' -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker/config.json:~/.docker/config.json") {
+     iC.inside("-v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp") {
       sh "./gradlew test --info"
       sh "./gradlew compileIntegrationTestKotlin --info"
       sh "./gradlew integrationTest --info"
